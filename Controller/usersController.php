@@ -39,7 +39,7 @@ class usersController{
           $nationalite = $_POST['nationalite'];
           $competenceID = $_POST['competences'];
   
-          $carte_didentite = $_FILES['photo']['name']; // Nom du fichier
+          $carte_didentite = $_FILES['carte_didentite']['name']; // Nom du fichier
           $carte_didentite_tmp = $_FILES['carte_didentite']['tmp_name']; // Emplacement temporaire du fichier
           $carte_didentite_destination = "Public/image/" . $carte_didentite; // Destination finale du fichier sur le serveur
           move_uploaded_file($carte_didentite_tmp, $carte_didentite_destination); // Déplacer le fichier vers sa destination finale
@@ -53,14 +53,14 @@ class usersController{
           // Appel de la méthode register du modèle utilisateur
           $register = $this->usersModel->register($username, $nom, $email, $password, $carte_didentite, $date_de_naissance, $genre, $photo, $description_dutilisateur, $nationalite, $competenceID);
   
-          if ($register) {
-              // Redirection vers la page de connexion après une inscription réussie
-              header('Location: index.php?page=connexionView');
-              exit();
-          } else {
-              // Afficher un message d'erreur si l'inscription a échoué
-              $_SESSION['error'] = "L'inscription a échoué. Veuillez réessayer.";
-          }
+          // if ($register) {
+          //     // Redirection vers la page de connexion après une inscription réussie
+          //     header('Location: index.php?page=connexionView');
+          //     exit();
+          // } else {
+          //     // Afficher un message d'erreur si l'inscription a échoué
+          //     $_SESSION['error'] = "L'inscription a échoué. Veuillez réessayer.";
+          // }
       }
   
       include_once "View/register.php";
@@ -68,5 +68,13 @@ class usersController{
     public function logout(){
       $logout = $this->usersModel->logout();
     }
-    
+    public function verificationUsers(){
+      $verification = $this->usersModel->getUserVerification();
+      if($_POST){
+        $user_id=$_POST["id"];
+        $checkUser = $this->usersModel->checkUser($user_id);
+        header('Refresh:0');
+      }
+      include_once "View/verificationUser.php";
+    }
 }

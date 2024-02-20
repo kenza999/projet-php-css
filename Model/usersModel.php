@@ -14,7 +14,7 @@ class usersModel{
 
         if( $_POST ){
             // extract($_POST);
-            if( !empty($_POST["username"]) && !empty($_POST["password"]) ){
+            if( !empty($_POST["email"]) && !empty($_POST["password"]) ){
                 /* Pour récupérer, en base de données, l'abonné dont le username a été tapé dans le formulaire 
                     on doit exécuter la requête SQL : SELECT * FROM abonne WHERE username = '$username'
                     La méthode prepare() de l'objet $pdo permet d'écrire une requête paramétrée (= au lieu de mettre directement
@@ -23,7 +23,7 @@ class usersModel{
                 $pdostatement = $this->db->prepare("SELECT * FROM users WHERE email = :username");
         
                 /* La méthode prepare() retourne un objet PDOStatement qui va lié les paramètres de la requête a des valeurs */
-                $pdostatement->bindValue(":username", $_POST["username"]);
+                $pdostatement->bindValue(":username", $_POST["email"]);
         
                 /* Ensuite avec la méthode execute() de l'objet $pdostatement, on va exécuter la requête SQL
                     La méthode execute() retourne un booléen (true si la requête s'est bien exécutée, false s'il y a eu une erreur)
@@ -114,4 +114,21 @@ class usersModel{
     header("Location: index.php");
     exit();
 }
+
+    public function getUserVerification(){
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE verificationUser = 0");
+            $stmt->execute();
+            $row = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            return $row;
+        } catch (PDOException $e) {
+            // Gérer l'erreur ou la logger
+            error_log("Erreur lors de la récupération des users non lues : " . $e->getMessage());
+        }
+    }
+    public function checkUser($user_id){
+        $sql = $this->db->prepare ("UPDATE `users` SET `verificationUser` = '1' WHERE `users`.`user_id` = :user_id;");
+        $sql->bindParam(':user_id', $user_id);
+        $sql->execute();
+    }
 }

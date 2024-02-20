@@ -99,7 +99,7 @@ switch ($page) {
             $adminController->adminConnecter();
             break;
     case 'dashboard_admin':
-        $adminController->dashboard_admin();
+        $usersController->verificationUsers();
             break;
 }
 ?>

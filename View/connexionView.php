@@ -34,7 +34,7 @@
                     <div class="mt-3">
                         <a href="reset_password.php">Mot de passe oublié ?</a>
                         <br>
-                        <a href="View/register.php">Créer un compte</a>
+                        <a href="index.php?page=inscriptionView">Créer un compte</a>
                     </div>
                 </form>
             </div>

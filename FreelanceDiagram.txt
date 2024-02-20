@@ -1,0 +1,72 @@
+admin
+	Connexion -> Fait
+	verfication d'identite ->
+	verifications des offres ->
+	Supprimer_Offre ->
+	Supprimer_client ->
+	Consulter_Offre ->
+	Consulter_statistique ->
+	Consulter_Freelance ->
+	Supprimer_Freelance ->
+	Supprimer_commentaire ->
+	dommage et interet ->
+
+Freelance
+
+	Inscription -> fait avec bug
+	Connexion -> Fait
+	dashboard -> En cours 
+	Centre de notifications ->
+	Offre de prestation -> Fait A changer
+	Contrat-> type - durée - date debut - date fin - salaire
+	Prestation - a venir - en cours - terminée
+	Siret ->
+	Facture ->
+    Paramètres
+	Changer mon mot de passe->
+	Parametres de notification->
+	Condition d'utilisation-> pages
+	Politique de confidentialité-> pages 
+	Désinscription
+	
+	Commentair - Note -> supprimer/consulter/ajouter
+		 -Tableau De Bord-
+
+		a propos de moi
+		Mes informations->
+		Adresse du prestataire->
+
+		-Formation et competences-
+		Etudes->
+		Langues->
+		Certifications->
+		Logiciels->
+		Langage de programmation->
+
+		-Equipement-
+		Permis->
+		Vehicules->
+
+		-Documents-
+
+		Information bancaires ->
+		Justificatif d'identité ->
+
+	Se deconnecter-> Fait 
+		
+ClientsProfils
+
+	Inscription -> Fait
+	Connexion -> Fait
+	dashboard -> A finir
+	Publier_Projet -> 
+	modifier_Projet ->
+	Supprimer_projet ->
+	Annuler ->
+	Consulter_Offre ->
+	recherche_offre ->
+	Contrat ->
+	payement ->
+	Consulter_commentaire ->
+	Noter_freelance ->
+Historique des missions
